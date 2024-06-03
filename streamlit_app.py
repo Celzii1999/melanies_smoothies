@@ -35,7 +35,8 @@ if ingredients_list: #if ingredients_list is not null, do everything below
     for fruit_chosen in ingredients_list: # or each fruit_chosen in ingredients_list multiselect box: do everything below this line that is indented. 
         ingredients_string += fruit_chosen + ' ' # this and athe previous line are FOR LOOP
                                                  # '+=' means add this to what is already in the variable
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        st.subheader(fruit_chosen + ' Nutrition Iformation')
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_chosen)
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     #st.write(ingredients_string)  # still part of the If() block
